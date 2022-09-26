@@ -1,9 +1,19 @@
 
-var headerTitle=document.getElementById('header-title');
-//console.log(headerTitle);
-//headerTitle.innerHTML='<h3>hello</h3>';
-headerTitle.style.borderBottom='solid 3px #000';
 
-var items=document.querySelector('.title');
-items.style.fontWeight='bold';
-items.style.color='green'; 
+var item=document.getElementsByClassName('list-group-item');
+console.log(item);
+item[2].style.background='green'
+
+item[0].style.fontWeight='bold';
+item[0].style.color='green'; 
+
+item[1].style.fontWeight='bold';
+item[1].style.color='green'; 
+
+item[2].style.fontWeight='bold';
+item[2].style.color='black'; 
+
+item[3].style.fontWeight='bold';
+item[3].style.color='green'; 
+
+
