@@ -57,7 +57,7 @@ function onSubmit(e) {
 
   axios
     .post(
-      "https://crudcrud.com/api/c0ab1c796ff446ab8010f3148e015ff8/expence",
+      "https://crudcrud.com/api/0afc4ff2594b4114a2f02ed3bc876166/expence",
       myObj
     )
     .then((response) => console.log(response))
@@ -66,7 +66,7 @@ function onSubmit(e) {
 
 window.addEventListener("DOMContentLoaded", () => {
   axios
-    .get("https://crudcrud.com/api/c0ab1c796ff446ab8010f3148e015ff8/expence")
+    .get("https://crudcrud.com/api/0afc4ff2594b4114a2f02ed3bc876166/expence")
     .then((responce) => {
       console.log(responce);
 
@@ -78,27 +78,27 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function showNewExpence(expence) {
-  const parentNode = document.getElementsByClassName("expence");
+  const parentNode = document.getElementsByClassName("expence")[0];
   const childHTML = `<li id="${expence._id}">${expence.amount}-${expence.catagory}-${expence.discription}
  <button onclick="editUser('${expence.amount}','${expence.catagory}','${expence.discription}','${expence._id}')">edit</button>
  <button onclick="deleteUser('${expence._id}')">delete</button>
  </li>`;
 
   parentNode.innerHTML += childHTML;
-  console.log(expence)
+ 
 }
 function editUser(amount, discription, catagory, expenceId) {
   document.getElementById("amount").value = amount;
   document.getElementById("discription").value = discription;
   document.getElementById("catagory").value = catagory;
-
-  deleteUser(expenceId);
+      deleteUser(expenceId)
+ 
 }
 
 function deleteUser(expenceId) {
   axios
     .delete(
-      `https://crudcrud.com/api/c0ab1c796ff446ab8010f3148e015ff8/expence/${expenceId}`
+      `https://crudcrud.com/api/0afc4ff2594b4114a2f02ed3bc876166/expence/${expenceId}`
     )
     .then((responce) => {
       removeExpence(expenceId);
@@ -107,7 +107,7 @@ function deleteUser(expenceId) {
 }
 
 function removeExpence(expenceId) {
-  const parentNode = document.getElementsByClassName("expence");
+  const parentNode = document.getElementsByClassName("expence")[0];
   const childtobeDeleted = document.getElementById(expenceId);
   if (childtobeDeleted) {
     parentNode.removeChild(childtobeDeleted);
