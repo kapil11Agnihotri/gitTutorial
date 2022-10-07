@@ -7,30 +7,6 @@ const expenceList=document.querySelector('.list')
 //add event listner
 
 myForm.addEventListener('submit',onSubmit);
-expenceList.addEventListener('click',removeItem)
-expenceList.addEventListener('click',editItem)
-
-function editItem(e){
-    if(e.target.classList.contains('edit')){
-
-        const li=e.target.parentElement;
-
-        expenceList.removeChild(li)
-        localStorage.setItem('New Expence : '+discriptionInput.value) 
-    }
-}
-
-
-function removeItem(e){
-    if(e.target.classList.contains('delete')){
-
-        const li=e.target.parentElement;
-
-        expenceList.removeChild(li)
-        localStorage.removeItem('New Expence : '+discriptionInput.value) 
-    }
-}
-
 
 function onSubmit(e){
     e.preventDefault()
@@ -68,12 +44,6 @@ let myObj={
     catgory:catagoryInput.value
 
  }
-
- let myObj_serialized=JSON.stringify(myObj);
-
-
-
- localStorage.setItem('New Expence : '+discriptionInput.value,myObj_serialized);
 
  console.log(Object.keys(myObj));
 
